@@ -1,0 +1,29 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jan 22, 2018, 1:06:29 PM
+    Author     : JWright
+*/
+
+
+    #AnchorPane{
+        -fx-background-image: url("../../../greenFelt.jpg");
+        -fx-background-repeat: stretch;   
+        -fx-background-size: 600 400;
+        -fx-background-position: center center;
+        -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0); 
+    }
+
+    .gridpane{
+        -fx-background-color: #f44b42;
+        -fx-background-radius: 18 18 18 18;
+    }
+    
+    .gridLabel{
+        -fx-text-fill: white;
+        -fx-font-size: 30;
+    }
+
