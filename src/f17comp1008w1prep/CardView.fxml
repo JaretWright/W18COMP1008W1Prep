@@ -13,8 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="400.0" prefWidth="600.0" stylesheets="@CardTable.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="f17comp1008w1prep.CardViewController">
+<AnchorPane id="AnchorPane" fx:id="pane" prefHeight="400.0" prefWidth="600.0" stylesheets="@CardTable.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="f17comp1008w1prep.CardViewController">
    <children>
       <VBox prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -75,6 +74,7 @@
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
               <buttons>
                 <Button mnemonicParsing="false" onAction="#changeSceneseButtonPushed" text="Create Random Hand" />
+                  <Button mnemonicParsing="false" onAction="#spinCardButtonPushed" text="Get a Card" />
               </buttons>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

@@ -9,7 +9,7 @@ import java.util.Collections;
  * @author JWright
  */
 public class VisualDeckOfCards {
-    ArrayList<VisualCard> deck;
+    private ArrayList<VisualCard> deck;
     
     public VisualDeckOfCards()
     {
