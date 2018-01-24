@@ -57,6 +57,10 @@ public class CardViewController implements Initializable {
     }  
     
     
+    /**
+     * This method will load the card on the scene
+     * @param card 
+     */
     public void preloadCard(VisualCard card)
     {
         this.card=card;
@@ -68,6 +72,10 @@ public class CardViewController implements Initializable {
         setVisible(false);
     }
     
+    /**
+     * This method will make the labels either visible or invisible with 1 command
+     * @param trueOrFalse 
+     */
     public void setVisible(boolean trueOrFalse)
     {
         suitLabel.setVisible(trueOrFalse);
@@ -76,7 +84,11 @@ public class CardViewController implements Initializable {
         imageView.setVisible(trueOrFalse);
     }
     
-    
+    /**
+     * This will change to the hand of cards scene
+     * @param event
+     * @throws IOException 
+     */
     public void changeSceneseButtonPushed(ActionEvent event) throws IOException
     {
         FXMLLoader loader = new FXMLLoader();
