@@ -50,7 +50,11 @@ public class VisualDeckOfCards {
         
         //or to make it more random, add a salt
         SecureRandom rng = new SecureRandom();
-        Collections.shuffle(deck, rng);
-        
+        Collections.shuffle(deck, rng);        
+    }
+    
+    public int getNumOfCards()
+    {
+        return deck.size();
     }
 }

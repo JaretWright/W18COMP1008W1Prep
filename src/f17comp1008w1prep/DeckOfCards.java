@@ -20,7 +20,7 @@ public class DeckOfCards {
         
         for (int suit = 0; suit<suits.length; suit++){
             for (int face = 0; face<faceNames.length; face++)
-                deck.add(new Card(faceNames[face], suits[suit], face+2));
+                deck.add(new Card(faceNames[face], suits[suit]));
         }            
     }
     

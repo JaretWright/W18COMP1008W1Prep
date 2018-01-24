@@ -2,6 +2,7 @@ package f17comp1008w1prep;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,12 +36,17 @@ public class HandOfCardsController implements Initializable {
         VisualDeckOfCards deck = new VisualDeckOfCards();
         deck.shuffleDeck();
         this.deck = deck;
-                
-        card1.setImage(deck.dealTopCard().getCardImage());
-        card2.setImage(deck.dealTopCard().getCardImage());
-        card3.setImage(deck.dealTopCard().getCardImage());
-        card4.setImage(deck.dealTopCard().getCardImage());
-        card5.setImage(deck.dealTopCard().getCardImage());
+        
+        ArrayList<VisualCard> playersHand = new ArrayList<>();
+        
+        for (int counter=1; counter <=5; counter++)
+            playersHand.add(deck.dealTopCard());
+                        
+        card1.setImage(playersHand.get(0).getCardImage());
+        card2.setImage(playersHand.get(1).getCardImage());
+        card3.setImage(playersHand.get(2).getCardImage());
+        card4.setImage(playersHand.get(3).getCardImage());
+        card5.setImage(playersHand.get(4).getCardImage());
     }    
     
      public void backButtonPushed(ActionEvent event) throws IOException

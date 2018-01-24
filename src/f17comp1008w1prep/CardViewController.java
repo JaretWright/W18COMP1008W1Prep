@@ -40,16 +40,22 @@ public class CardViewController implements Initializable {
     @FXML    private Label suitLabel;
     @FXML    private Label faceNameLabel;
     @FXML    private Label valueLabel;
+    @FXML    private Label cardInDeckLabel;
              private VisualCard card;
+             private VisualDeckOfCards deck;
              
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        preloadCard(new VisualCard("ace","spades",14));
+        VisualDeckOfCards deck = new VisualDeckOfCards();
+        deck.shuffleDeck();
+        this.deck = deck;
+        cardInDeckLabel.setText(Integer.toString(deck.getNumOfCards()));
         
     }  
+    
     
     public void preloadCard(VisualCard card)
     {
@@ -86,48 +92,49 @@ public class CardViewController implements Initializable {
         window.show();
     }
     
+    
+    /**
+     * This will take the top card out of the deck and display it with an animation
+     */
     public void spinCardButtonPushed() 
     {
+       
+        preloadCard(deck.dealTopCard());
+        cardInDeckLabel.setText(Integer.toString(deck.getNumOfCards()));
         setVisible(true);
         
         imageView.setX(0);
         imageView.setY(0);
         
+        //this creates an array of points the object should move to
         PathElement[] path = 
         {           
-            new MoveTo(-100, -100),         //starting point
+            new MoveTo(-100, -100),     //starting point
             new LineTo(80, 150),        //ending point
-           // new ClosePath()  //This will take it back to where it started
+           // new ClosePath()           //This will take it back to where it started
         };
         
+        //This creates a Path object
         Path pathToFollow = new Path();
         pathToFollow.getElements().addAll(path);
         
+        //creating a PathTransition object.  This allows us to define the path, how long the animation will take, how many times it will happen and
+        //get it to start with the play() method
         PathTransition anim = new PathTransition();
         anim.setNode(imageView);
         anim.setPath(pathToFollow);
-         anim.setInterpolator(Interpolator.LINEAR);  //provides for smooth motion
+        anim.setInterpolator(Interpolator.LINEAR);  //provides for smooth motion
         anim.setDuration(new Duration(1000));
         anim.setCycleCount(1);
         anim.play();
         
+        //This rotates the object 360 degrees 3 times  It will trigger at the same time as the previous animation
+        //giving the perception of a card rotating through space
         RotateTransition rotate = new RotateTransition(Duration.millis(300), imageView);
         rotate.setByAngle(360);
         rotate.setCycleCount(3);
         rotate.setAutoReverse(false);
         rotate.play();
-        //imageView.getTransforms().add(rotate);
-        
-//        double angle = 0;
-//        
-//        for (int i=1; i<= 24; i++){
-//            rotate.setAngle(angle+=15);
-//            rotate.setPivotX(imageView.getFitWidth()/2);
-//            rotate.setPivotY(imageView.getFitHeight()/2);
-//        }
-            
-           
-        
     }
     
 }

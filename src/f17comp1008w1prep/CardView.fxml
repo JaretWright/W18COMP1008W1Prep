@@ -29,6 +29,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
                         <Label styleClass="gridLabel" stylesheets="@CardTable.css" text="Suit:">
@@ -61,6 +62,8 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
+                        <Label styleClass="gridLabel" stylesheets="@CardTable.css" text="Cards:" GridPane.rowIndex="3" />
+                        <Label fx:id="cardInDeckLabel" styleClass="gridLabel" stylesheets="@CardTable.css" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                      </children>
                      <padding>
                         <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -74,7 +77,7 @@
             <ButtonBar prefHeight="40.0" prefWidth="200.0">
               <buttons>
                 <Button mnemonicParsing="false" onAction="#changeSceneseButtonPushed" text="Create Random Hand" />
-                  <Button mnemonicParsing="false" onAction="#spinCardButtonPushed" text="Get a Card" />
+                  <Button mnemonicParsing="false" onAction="#spinCardButtonPushed" text="Deal Card" />
               </buttons>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

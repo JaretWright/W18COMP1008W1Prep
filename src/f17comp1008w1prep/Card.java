@@ -8,29 +8,30 @@ import java.util.Arrays;
  * @author JWright
  */
 public class Card {
-    
+    private static String[] validFaceNames = {"2","3","4","5","6","7","8","9","10","jack","queen","king","ace"};
+    private static String[] validSuits = {"spades","clubs","hearts","diamonds"};
     private String faceName, suit;
     private int faceValue;
 
-    public Card(String faceName, String suit, int faceValue) {
+    public Card(String faceName, String suit) {
         setFaceName(faceName);
         setSuit(suit);
-        setFaceValue(faceValue);
+        setFaceValue();
     }
 
     public String getFaceName() {
         return faceName;
     }
 
-    public void setFaceName(String faceName) {           
-        ArrayList validFaceNames = 
-                new ArrayList<String>(Arrays.asList("2","3","4","5","6","7","8","9","10","jack","queen","king","ace"));
-        
-        //this is a case sensitive search technique
-        if (validFaceNames.contains(faceName))
-            this.faceName = faceName;
-        else
-            throw new IllegalArgumentException("Invalid face name");
+    public void setFaceName(String faceName) 
+    {                  
+        for (String validFaceName : validFaceNames){
+            if (validFaceName.equalsIgnoreCase(faceName)){
+                this.faceName = faceName;
+                return;
+            }                
+        }
+        throw new IllegalArgumentException("Invalid face name");
     }
 
     public String getSuit() {
@@ -38,22 +39,28 @@ public class Card {
     }
 
     public void setSuit(String suit) {
-        if (suit.equalsIgnoreCase("spades") || suit.equalsIgnoreCase("clubs") ||
-            suit.equalsIgnoreCase("hearts") || suit.equalsIgnoreCase("diamonds"))
-            this.suit = suit.toLowerCase();
-        else
-            throw new IllegalArgumentException("suit must be spades, clubs, hearts or diamonds");
+        for (String validSuitName : validSuits)
+        {
+            if (validSuitName.equalsIgnoreCase(suit)){
+                this.suit = suit;
+                return;
+            }            
+        }
+        throw new IllegalArgumentException("suit must be spades, clubs, hearts or diamonds");
     }
 
     public int getFaceValue() {
         return faceValue;
     }
 
-    public void setFaceValue(int faceValue) {
-        if (faceValue < 2 || faceValue > 14)
-            throw new IllegalArgumentException("Card object must have a face value between 2-14 inclusive");
-        else
-            this.faceValue = faceValue;
+    private void setFaceValue() {
+        for (int i=0; i<validFaceNames.length; i++)
+        {
+            if (validFaceNames[i].equalsIgnoreCase(faceName)){
+                this.faceValue=i+2;
+                return;
+            }                
+        }
     }
 
     public String toString()

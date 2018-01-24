@@ -16,13 +16,13 @@ public class TestCardCreation {
     public static void main(String[] args)
     {
         
-        Card aceOfSpades = new Card("ace", "spades", 14);
+        Card aceOfSpades = new Card("ace", "spades");
         
         System.out.printf("The face name of the card is %s%n", aceOfSpades.getFaceName());
         System.out.printf("The suit of the card is %s%n", aceOfSpades.getSuit());
         System.out.printf("The card describes itself as: %s%n", aceOfSpades);
         
-        Card twoOfDiamonds = new Card("2", "diamonds", 2);
+        Card twoOfDiamonds = new Card("2", "diamonds");
         System.out.printf("%n%nThe face name of the card is %s%n", twoOfDiamonds.getFaceName());
         System.out.printf("The suit of the card is %s%n", twoOfDiamonds.getSuit());
         System.out.printf("The card describes itself as: %s%n", twoOfDiamonds);
